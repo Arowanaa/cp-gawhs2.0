@@ -1,2 +1,2 @@
 echo "Change the root password"
-passwd
+passwd root 
