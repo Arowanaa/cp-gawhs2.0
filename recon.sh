@@ -1,21 +1,16 @@
-touch history.txt && history > history.txt &&  echo " " >> history.txt &&  echo "Root" >> history.txt &&  echo " " >> history.txt 
-
-sudo su
-history >> history.txt && exit
-
-touch authlog.txt && cat /var/log/auth.log > authlog.txt 
-
-mkdir Recon 
-mkdir Recon/Shell 
-mv history.txt /Recon/Shell && mv authlog.txt /Recon/Shell 
+mkdir Recon
 cd Recon
+
 #Shell
+mkdir Shell 
 cd Shell 
+touch authlog.txt && cat /var/log/auth.log > authlog.txt 
 touch installhistory1.txt && cat /var/log/dpkg.log > installhistory1.txt
 touch installhistory2.txt && cat /var/log/dpkg.log.1 > installhistory2.txt
 touch aliases.txt && alias > aliases.txt 
 cd ..
 
+#Box Items 
 mkdir Items 
 sudo apt install net-tools 
 touch osversion.txt && cat /etc/os-release >> osversion.txt && echo " " >> osversion.txt && lsb_release -a >> osversion.txt && echo " " >> osversion.txt && hostnamectl >> osversion.txt 
@@ -44,6 +39,7 @@ find /home -iname '*.jpeg' -type f >> No no files
 cd ..
 mv osversion.txt Items && mv installeditems.txt Items && mv "netstat-p.txt" Items && mv motd.txt Items && mv homedir.txt Items
 
+#Users and Passwords 
 mkdir Users 
 touch finalusers.txt && touch passwd.txt && sudo awk -F ":" '{print $1}'  /etc/passwd > passwd.txt | sort -nk1 passwd.txt && sort -nk1 user.txt | diff -y user.txt passwd.txt > finalusers.txt
 touch auth.txt && sudo awk -F ":" '{print $1}' /etc/shadow > auth.txt && echo " " >> auth.txt && sudo awk -F ":" '{print $2}' /etc/shadow >> auth.txt
@@ -52,8 +48,10 @@ sudo cat /etc/passwd > passwd.txt
 touch shadow.txt && sudo cat /etc/shadow > shadow.txt 
 touch passwdcmp.txt && cat /etc/pam.d/common-password > passwdcmp.txt 
 touch logindefs.txt && cat /etc/login.defs > logindefs.txt
-mv finalusers.txt Users && mv admin.txt Users && mv groups.txt Users && mv auth.txt Users && mv passwd.txt Users && mv shadow.txt Users && mv passwdcmp.txt Users && mv logindefs.txt Users
+touch full.txt && awk -F ":" '{ printf $3 ":" $1; system("groups " $1 "| cut -d \":\" -f2 | sed \"s/^ */:/g\" | sed \"s/ /,/g\"") }' /etc/passwd > full.txt 
+mv finalusers.txt Users && mv admin.txt Users && mv groups.txt Users && mv auth.txt Users && mv passwd.txt Users && mv shadow.txt Users && mv passwdcmp.txt Users && mv logindefs.txt Users && mv full.txt Users
 
+#Cron Processes 
 mkdir Cron 
 touch crontab.txt && echo "crontab:" >> crontab.txt && crontab -l > crontab.txt 
 echo " " >> crontab.txt && echo "Hourly:" >> crontab.txt && ls -la /etc/cron.hourly/ >> crontab.txt 
@@ -63,12 +61,14 @@ echo " " >> crontab.txt && echo "Monthly:" >> crontab.txt && ls -la /etc/cron.mo
 touch cronroot.txt && sudo crontab -u root -l > cronroot.txt && echo " " >> cronroot.txt && cat /etc/crontab >> cronroot.txt 
 mv crontab.txt Cron && mv cronroot.txt Cron
 
+#Kernel
 mkdir Kernel 
 touch logs.txt && journalctl > logs.txt 
 touch version.txt && uname -a > version.txt 
 touch boot.txt && systemd-analyze blame > boot.txt 
 mv logs.txt Kernel && mv version.txt Kernel && mv boot.txt Kernel 
 
+#Services 
 mkdir Services 
 touch services.txt && cat /etc/services > services.txt
 sudo service --status-all > servicestatus.txt 
@@ -77,6 +77,7 @@ ls -al ~/.ssh
 touch keys.txt && cat id_rsa.pub > keys.txt && echo " " keys.txt && echo " " keys.txt && cat id_ecdsa.pub >> keys.txt && echo " " keys.txt && echo " " keys.txt && cat id_ed25519.pub >> keys.txt 
 mv "netstat-t.txt" Services && mv servicestatus.txt Services && mv keys.txt Services mv services.txt Services
 
+#Firewall
 mkdir Firewall 
 touch version.txt && ufw version > version.txt 
 touch rules.txt && sudo ufw status numbered > rules.txt && echo " " >>  rules.txt && sudo ufw status verbose >> rules.txt 
@@ -84,6 +85,7 @@ touch log.txt && cat /var/log/ufw.log > log.txt
 touch iptables.txt && iptables -L > iptables.txt 
 mv version.txt Firewall && mv log.txt Firewall && mv iptables.txt Firewall && mv rules.txt Firewall 
 
+#Important Configs 
 mkdir Configs
 cd Configs
 mkdir sysctl
