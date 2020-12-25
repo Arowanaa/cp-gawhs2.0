@@ -21,21 +21,21 @@ touch homedir.txt && ls -la /home/*/* > homedir.txt
 mkdir Files 
 cd Files
 touch "No no files" 
-find / -iname '*.mp3' -type f > No no files
-find / -iname '*.mov' -type f >> No no files
-find / -iname '*.mp4' -type f >> No no files
-find / -iname '*.avi' -type f >> No no files
-find / -iname '*.mpg' -type f >> No no files
-find / -iname '*.mpeg' -type f >> No no files
-find / -iname '*.flac' -type f >> No no files
-find / -iname '*.m4a' -type f >> No no files
-find / -iname '*.flv' -type f >> No no files
-find / -iname '*.ogg' -type f >> No no files
-find / -iname '*.mov' -type f >> No no files
-find /home -iname '*.gif' -type f >> No no files
-find /home -iname '*.png' -type f >> No no files
-find /home -iname '*.jpg' -type f >> No no files
-find /home -iname '*.jpeg' -type f >> No no files
+find / -iname '*.mp3' -type f > "No no files"
+find / -iname '*.mov' -type f >> "No no files"
+find / -iname '*.mp4' -type f >> "No no files"
+find / -iname '*.avi' -type f >> "No no files"
+find / -iname '*.mpg' -type f >> "No no files"
+find / -iname '*.mpeg' -type f >> "No no files"
+find / -iname '*.flac' -type f >> "No no files"
+find / -iname '*.m4a' -type f >> "No no files"
+find / -iname '*.flv' -type f >> "No no files"
+find / -iname '*.ogg' -type f >> "No no files"
+find / -iname '*.mov' -type f >> "No no files"
+find /home -iname '*.gif' -type f >> "No no files"
+find /home -iname '*.png' -type f >> "No no files"
+find /home -iname '*.jpg' -type f >> "No no files"
+find /home -iname '*.jpeg' -type f >> "No no files"
 cd ..
 mv osversion.txt Items && mv installeditems.txt Items && mv "netstat-p.txt" Items && mv motd.txt Items && mv homedir.txt Items
 
