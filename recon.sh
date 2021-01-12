@@ -120,4 +120,6 @@ mkdir SQL
 cd SQL
 touch postgresqlconf.txt && cat /etc/postgresql/9.5/main/postgresql.conf > postgresqlconf.txt 
 cd ..
+mkdir nginx
+touch nginxconf.txt 
 cd ..
