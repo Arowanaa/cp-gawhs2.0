@@ -8,6 +8,9 @@ touch authlog.txt && cat /var/log/auth.log > authlog.txt
 touch installhistory1.txt && cat /var/log/dpkg.log > installhistory1.txt
 touch installhistory2.txt && cat /var/log/dpkg.log.1 > installhistory2.txt
 touch aliases.txt && alias > aliases.txt 
+touch sources.list.txt && apt-cache policy > sources.list.txt && echo " " >> sources.list.txt && cat /etc/apt/sources.list >> sources.list.txt && echo " " >> sources.list.txt && ls -la /etc/apt/sources.list* >> sources.list.txt
+touch sudo.txt && dpkg -s sudo > sudo.txt && echo " " >> sudo.txt && cat /etc/sudoers >> sudo.txt 
+
 cd ..
 
 #Box Items 
