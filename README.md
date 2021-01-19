@@ -1,7 +1,7 @@
 # cp-gawhs
 ### CyberPatriot Linux Script
 
-Hello! This linux script was authored by Kenneth and Thomas. Still under construction.  
+Hello! This linux script was authored by a Kenneth. Still under construction.  
 
 ## Items still under construction:  
 - Services (`apache2 nginx ftp vsftp cups`)  
