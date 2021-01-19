@@ -9,7 +9,7 @@ sudo chmod 777 /etc/sysctl.conf
 
 #securing sysctl.conf
 echo "net.ipv4.icmp_echo_ignore_broadcasts = 1" >> /etc/sysctl.conf
-echo "net.ipv4.icmp_ignore_bogus_error_responses = 1 >> /etc/sysctl.conf
+echo "net.ipv4.icmp_ignore_bogus_error_responses = 1" >> /etc/sysctl.conf
 echo "net.ipv4.conf.all.accept_redirects = 0" >> /etc/sysctl.conf
 echo "net.ipv6.conf.all.accept_redirects = 0" >> /etc/sysctl.conf
 echo "net.ipv4.ip_forward = 0" >> /etc/sysctl.conf
@@ -37,7 +37,7 @@ echo "net.ipv6.conf.all.accept_redirects = 0"  >> /etc/sysctl.conf
 echo "net.ipv4.conf.default.secure_redirects = 0"  >> /etc/sysctl.conf
 echo "net.ipv6.conf.all.accept_redirects = 0"  >> /etc/sysctl.conf
 echo "net.ipv6.conf.default.accept_redirect = 0"  >> /etc/sysctl.conf
-echo "kernel.randomize_va_space = 1" >> /etc/sysctl.conf
+echo "kernel.randomize_va_space = 2" >> /etc/sysctl.conf
 echo "net.ipv4.icmp_echo_ignore_all =  0"  >> /etc/sysctl.conf
 
 #securing 99-sysctl.conf
