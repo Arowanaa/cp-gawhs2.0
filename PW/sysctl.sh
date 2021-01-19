@@ -9,12 +9,22 @@ sudo chmod 777 /etc/sysctl.conf
 
 #securing sysctl.conf
 echo "net.ipv4.icmp_echo_ignore_broadcasts = 1" >> /etc/sysctl.conf
+echo "net.ipv4.icmp_ignore_bogus_error_responses = 1 >> /etc/sysctl.conf
 echo "net.ipv4.conf.all.accept_redirects = 0" >> /etc/sysctl.conf
 echo "net.ipv6.conf.all.accept_redirects = 0" >> /etc/sysctl.conf
 echo "net.ipv4.ip_forward = 0" >> /etc/sysctl.conf
 echo "net.ipv4.conf.all.accept_source_route = 0" >> /etc/sysctl.conf
 echo "net.ipv6.conf.all.accept_source_route = 0" >> /etc/sysctl.conf
 echo "net.ipv4.conf.all.send_redirects = 0" >> /etc/sysctl.conf
+echo "net.ipv4.conf.default.send_redirects = 0" >> /etc/sysctl.conf
+echo "net.ipv4.conf.all.accept_source_route = 0" >> /etc/sysctl.conf
+echo "net.ipv4.conf.default.accept_source_route = 0" >> /etc/sysctl.conf
+echo "net.ipv6.conf.all.accept_source_route = 0" >> /etc/sysctl.conf
+echo "net.ipv6.conf.default.accept_source_route = 0" >> /etc/sysctl.conf
+echo "net.ipv4.conf.all.log_martians = 1" >> /etc/sysctl.conf
+echo "net.ipv4.conf.default.log_martians = 1" >> /etc/sysctl.conf
+echo "net.ipv6.conf.all.accept_ra = 0" >> /etc/sysctl.conf
+echo "net.ipv6.conf.default.accept_ra = 0" >> /etc/sysctl.conf
 
 echo "net.ipv4.tcp_syncookies = 1"  >> /etc/sysctl.conf
 echo "net.ipv4.conf.all.rp_filter = 1"  >> /etc/sysctl.conf
