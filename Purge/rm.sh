@@ -24,7 +24,13 @@
 	sudo apt-get purge lcrack
 	sudo apt-get purge ophcrack
 	sudo apt-get purge sl
-
+	sudo apt-get purge nis
+	sudo apt-get purge rsync
+	sudo apt-get purge rsh-client
+	sudo apt-get purge ldap-utils
+	sudo apt-get purge finger
+	sudo apt-get purge talk
+	sudo apt-get purge fcrackzip
 
 
 #Puring services
