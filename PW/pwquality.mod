@@ -61,3 +61,8 @@
 #
 # Path to the cracklib dictionaries. Default is to use the cracklib default.
 # dictpath =
+minlen = 14
+dcredit = -1
+ucredit = -1
+ocredit = -1
+lcredit = -1
