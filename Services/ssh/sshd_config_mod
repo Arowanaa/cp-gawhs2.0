@@ -61,7 +61,7 @@ KerberosTicketCleanup yes
 GSSAPIAuthentication yes
 GSSAPICleanupCredentials yes
 
-X11Forwarding yes
+X11Forwarding no
 X11DisplayOffset 10
 PrintMotd no
 PrintLastLog no
@@ -88,4 +88,28 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 UsePAM yes
 
 #You can add user groups here. For example: AddGroups pipefitters
+
+#AllowGroups <grouplist>
+#DenyGroups <grouplist>
+
 #You can add users here. For example: AddUser Curtis_Lee
+
+#AllowUsers <userlist>
+#DenyUsers <userlist>
+
+MaxAuthTries 4
+MaxSessions 4
+PermitUserEnvironment no
+ClientAliveInterval 300
+ClientAliveCountMax 0
+LoginGraceTime 60
+Banner /etc/issue.net
+AllowTcpForwarding no
+maxstartups 10:30:60
+
+Ciphers aes256-ctr,aes192-ctr,aes128-ctr
+
+MACs hmac-sha2-512,hmac-sha2-256
+
+KexAlgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchangesha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellmangroup14-sha256
+
