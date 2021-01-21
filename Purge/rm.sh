@@ -13,7 +13,6 @@
 	sudo apt-get purge myheritage
 	sudo apt-get purge wireshark
 	sudo apt-get purge *nmap
-	sudo apt-get purge john
   	sudo apt-get purge nikto
 	sudo apt-get purge nmap
 	sudo apt-get purge hashcat
@@ -47,6 +46,7 @@
 	sudo apt-get purge telnet-server
 	sudo apt-get purge nmdb
 	sudo apt-get purge dhclient
+	sudo apt-get puge rsh-server
 
 
 	#removes leftover directories
