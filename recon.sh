@@ -15,6 +15,7 @@ touch sudo.txt && dpkg -s sudo > sudo.txt && echo " " >> sudo.txt && cat /etc/su
 touch issue.txt && cat /etc/issue > issue.txt
 touch issue.net.txt && cat /etc/issue.net > issue.net.txt
 touch gmd.txt && cat /etc/gdm3/greeter.dconf-defaults > gdm.txt
+touch pwquality.txt && cat /etc/pwquality.conf > pwquality.txt
 cd ..
 
 #Box Items 
