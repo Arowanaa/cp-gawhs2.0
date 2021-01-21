@@ -24,16 +24,16 @@ auth      sufficent   pam_unix.so likeauth nullok
 password    sufficent  pam_unix.so  remember=4 
 
 # here are the per-package modules (the "Primary" block)
-password [success=2 default=ignore] pam_unix.so obscure sha512 minlen=8
+password [success=2 default=ignore] pam_unix.so obscure sha512 minlen = 14
 
 # here's the fallback if no module succeeds
 password	requisite			pam_deny.so
-password requisite pam_pwquality.so retry=3 maxrepeat=2
-ucredit=-1
-dcredit=-1
-ocredit=-1
-lcredit=-1
-minclass=2
+password requisite pam_pwquality.so retry = 3 maxrepeat = 2
+ucredit = -1
+dcredit = -1
+ocredit = -1
+lcredit = -1
+
 # prime the stack with a positive return value if there isn't one already;
 # this avoids us returning an error just because nothing sets a success code
 # since the modules above will each just jump around
