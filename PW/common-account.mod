@@ -24,3 +24,5 @@ account	requisite			pam_deny.so
 account	required			pam_permit.so
 # and here are more per-package modules (the "Additional" block)
 # end of pam-auth-update config
+account requisite pam_deny.so
+account required pam_tally2.so
