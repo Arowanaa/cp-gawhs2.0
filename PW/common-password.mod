@@ -33,7 +33,7 @@ ucredit = -1
 dcredit = -1
 ocredit = -1
 lcredit = -1
-
+password required pam_pwhistory.so remember=5
 # prime the stack with a positive return value if there isn't one already;
 # this avoids us returning an error just because nothing sets a success code
 # since the modules above will each just jump around
