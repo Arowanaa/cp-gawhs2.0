@@ -30,6 +30,7 @@
 	sudo apt-get purge finger
 	sudo apt-get purge talk
 	sudo apt-get purge fcrackzip
+	sudo apt-get purge rkhunter
 
 
 #Puring services
