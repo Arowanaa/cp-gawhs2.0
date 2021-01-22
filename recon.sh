@@ -27,7 +27,7 @@ touch "netstat-p.txt" && sudo netstat -peanut > "netstat-p.txt"
 touch motd.txt && cat /run/motd.dynamic > motd.txt && echo " " >> motd.txt && sudo run-parts -v /etc/update-motd.d/ > motd.txt 
 touch homedir.txt && ls -la /home/*/* > homedir.txt 
 # touch perms.txt &&  df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type f -perm -0002 > perms.txt
-touch perms.txt && find <partition> -xdev -type f -perm -0002 > perms.txt && echo " " >> perms.txt && find <partition> -xdev -nouser perms.txt && echo " " >> perms.txt && find <partition> -xdev -nogroup >> perms.txt
+# touch perms.txt && find <partition> -xdev -type f -perm -0002 > perms.txt && echo " " >> perms.txt && find <partition> -xdev -nouser perms.txt && echo " " >> perms.txt && find <partition> -xdev -nogroup >> perms.txt
 mkdir Files 
 cd Files
 touch "No no files" 
