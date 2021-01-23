@@ -241,6 +241,30 @@ Options –Indexes -Includes
 Order allow,denyAllow from all
 </Directory>
 
+# allow certain ips to access the dir 
+#<Directory "/home/user/public_html">
+#    Order Deny,Allow
+#    Deny from all
+#    Allow from 192.168.1.0/24
+#    Allow from .example.com
+#</Directory>
+
+#<File [Specific File]>
+#    Order deny,allow
+#    Deny from all
+#</File>
+
+#<Location [Location (Ex. /admin]>
+#    Order Deny,Allow
+#    Deny from all
+#    Allow from 192.168.1.0/24
+#    Allow from .example.com
+#</Location>
+
+#<Directory "/home/user/public_html">
+#   Options -Includes -ExecCGI
+#</Directory>
+
 FileETag None
 TraceEnable off
 
