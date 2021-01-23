@@ -1624,6 +1624,7 @@ extension=imagick.so
 
 
 allow_url_fo = 0 
+allow_url_fopen = Off
 allow_url_include = 0 
 max_input_time = 30 
 max_execution_time = 30 
@@ -1631,14 +1632,14 @@ expose_php = Off
 allow_url_fopen = Off 
 max_input_vars = 100
 register_globals = Off
-display_errors = 0 
+display_errors = Off
 display_startup_errors = 0 
 log_errors = 1 
-file_uploads = 1 
-upload_max_filesize = 1M 
+file_uploads = Off
+upload_max_filesize = 2M 
 date.timezone = "UTC"
 memory_limit = 8M 
-cgi.force_redirect = 1 
+cgi.force_redirect = 0
 post_max_size = 256K
 session.use_strict_mode = 1 
 session.cookie_httponly = 1 
@@ -1651,6 +1652,11 @@ session.save_path = */var/lib/php/session"
 session.hash_function = sha512
 session.bug_compat_42 = 0
 session.bug_compat_warn = 0
+safe_mode_allowed_env_vars = PHP_
+safe_mode = On
+sql.safe_mode = On
+logging log_errors = On
+
 ;If your web application runs over the HTTPS protocol for security, 
 'enable this setting to force cookies containing session IDs to be accessed only over a 
 ;secure connection.
