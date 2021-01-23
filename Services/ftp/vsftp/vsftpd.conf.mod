@@ -169,7 +169,7 @@ port_enable=YES
 # ref: https://www.benscobie.com/fixing-500-oops-vsftpd-refusing-to-run-with-writable-root-inside-chroot/
 allow_writeable_chroot=YES
 
-anonymous_enable=public/private
+
 local_enable=YES
 write_enable=NO
 local_umask=022
@@ -194,6 +194,13 @@ ssl_sslv2=NO
 ssl_sslv3=NO
 require_ssl_reuse=YES
 ssl_ciphers=HIGH
+anonymous_enable=NO
+#allow_writeable_chroot=YES
+
+#no_anon_password=YES
+#anonymous_enable=YES
+#anon_root=[root home]
+
 
 #rsa_cert_file=/etc/ssl/certs/vsftpd.crt
 #rsa_private_key_file=/etc/ssl/private/vsftpd.key
