@@ -187,13 +187,16 @@ ssl_enable=YES
 allow_anon_ssl=NO
 force_local_data_ssl=YES
 force_local_logins_ssl=YES
-ssl_tlsv1_1=YES
-ssl_tlsv1_2=YES
 ssl_tlsv1=NO
+ssl_tlsv1_1=NO
+ssl_tlsv1_2=YES
 ssl_sslv2=NO
 ssl_sslv3=NO
 require_ssl_reuse=YES
 ssl_ciphers=HIGH
+
+#rsa_cert_file=/etc/ssl/certs/vsftpd.crt
+#rsa_private_key_file=/etc/ssl/private/vsftpd.key
 
 #chroot_local_user=
 #chroot_local_user=YES
