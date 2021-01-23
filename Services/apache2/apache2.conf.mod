@@ -241,6 +241,13 @@ Options –Indexes -Includes
 Order allow,denyAllow from all
 </Directory>
 
+<Directory />
+	AllowOverride None
+	Order deny,allow
+	LimitRequestBody 102400
+	Options -Indexes -Includes -FollowSymLinks
+</Directory>
+
 # allow certain ips to access the dir 
 #<Directory "/home/user/public_html">
 #    Order Deny,Allow
