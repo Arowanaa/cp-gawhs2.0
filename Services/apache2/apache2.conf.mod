@@ -254,8 +254,10 @@ RewriteEngine On
 RewriteCond %{THE_REQUEST} !HTTP/1.1$
 RewriteRule .* - [F]
 
-LoadModule unique_id_module modules/mod_unique_id.so
-LoadModule security2_module modules/mod_security2.so
+LogFormat "%h %l %u %t "%{sessionID}C" "%r" %>s %b %T" common
 
-User apache 
-Group apache
+#LoadModule unique_id_module modules/mod_unique_id.so
+#LoadModule security2_module modules/mod_security2.so
+# Listen 10.10.10.1:80
+# User apache 
+# Group apache
