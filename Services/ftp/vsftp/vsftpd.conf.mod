@@ -196,4 +196,6 @@ require_ssl_reuse=YES
 ssl_ciphers=HIGH
 
 #chroot_local_user=
-#
+#chroot_local_user=YES
+#chroot_list_enable=YES
+#chroot_list_file=/etc/vsftpd/vsftpd.chroot_list
