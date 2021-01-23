@@ -61,13 +61,3 @@ RequireValidShell on
 UseIPv6 off
 #AuthOrder
 
-#Use in 
-#TLSRSACertificateFile /etc/ssl/certs/proftpdcertificate.pem
-#TLSRSACertificateKeyFile /etc/ssl/private/proftpdserverkey.pem
-#TLSEngine on
-#TLSLog /var/log/proftpd/tls.log
-#TLSProtocol SSLv23
-#TLSRequired on
-#TLSOptions NoCertRequest EnableDiags NoSessionReuseRequired
-#TLSVerifyClient off
-#Include /etc/proftpd/tls.conf
