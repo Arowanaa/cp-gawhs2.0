@@ -24,7 +24,7 @@ auth	required			pam_permit.so
 # and here are more per-package modules (the "Additional" block)
 auth	optional			pam_cap.so 
 # end of pam-auth-update config
-root@ubuntu:/home/os/Desktop# cat /etc/pam.d/common-account 
+# cat /etc/pam.d/common-account 
 #
 # /etc/pam.d/common-account - authorization settings common to all services
 #
