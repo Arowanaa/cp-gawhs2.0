@@ -31,6 +31,8 @@
 	sudo apt-get purge talk
 	sudo apt-get purge fcrackzip
 	sudo apt-get purge rkhunter
+	sudo apt-get purge themole
+	
 
 
 #Puring services
