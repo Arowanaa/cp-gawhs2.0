@@ -32,6 +32,9 @@
 	sudo apt-get purge fcrackzip
 	sudo apt-get purge rkhunter
 	sudo apt-get purge themole
+	sudo apt-get purge rfkill
+	sudo apt-get purge zmap
+	sudo apt-get purge doona
 	
 
 
@@ -49,7 +52,7 @@
 	sudo apt-get purge telnet-server
 	sudo apt-get purge nmdb
 	sudo apt-get purge dhclient
-	sudo apt-get puge rsh-server
+	sudo apt-get purge rsh-server
 
 
 	#removes leftover directories
