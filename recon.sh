@@ -3,6 +3,9 @@
 mkdir Recon
 cd Recon
 
+#makes Main directory
+mkdir Main
+
 #Shell
 mkdir Shell 
 cd Shell 
@@ -16,7 +19,13 @@ touch issue.txt && cat /etc/issue > issue.txt
 touch issue.net.txt && cat /etc/issue.net > issue.net.txt
 touch gmd.txt && cat /etc/gdm3/greeter.dconf-defaults > gdm.txt
 touch pwquality.txt && cat /etc/pwquality.conf > pwquality.txt
+cat /var/log/* > logs.txt
+cat /var/log/apt/* >> logs.txt
 cd ..
+cp Shell/installhistory* Main 
+cp Shell/a* Main
+cp Shell/sudo* Main
+
 
 #Box Items 
 mkdir Items 
@@ -28,6 +37,8 @@ touch motd.txt && cat /run/motd.dynamic > motd.txt && echo " " >> motd.txt && su
 touch homedir.txt && ls -la /home/*/* > homedir.txt 
 # touch perms.txt &&  df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type f -perm -0002 > perms.txt
 # touch perms.txt && find <partition> -xdev -type f -perm -0002 > perms.txt && echo " " >> perms.txt && find <partition> -xdev -nouser perms.txt && echo " " >> perms.txt && find <partition> -xdev -nogroup >> perms.txt
+
+#Files
 mkdir Files 
 cd Files
 touch "No no files" 
@@ -49,6 +60,7 @@ find /home -iname '*.jpg' -type f >> "No no files"
 find /home -iname '*.jpeg' -type f >> "No no files"
 cd ..
 mv osversion.txt Items && mv installeditems.txt Items && mv "netstat-p.txt" Items && mv motd.txt Items && mv homedir.txt Items
+cp /Items/"No no files" Main
 
 #Users and Passwords 
 mkdir Users 
@@ -60,7 +72,10 @@ touch shadow.txt && sudo cat /etc/shadow > shadow.txt
 touch passwdcmp.txt && cat /etc/pam.d/common-password > passwdcmp.txt 
 touch logindefs.txt && cat /etc/login.defs > logindefs.txt
 touch full.txt && awk -F ":" '{ printf $3 ":" $1; system("groups " $1 "| cut -d \":\" -f2 | sed \"s/^ */:/g\" | sed \"s/ /,/g\"") }' /etc/passwd > full.txt 
-mv finalusers.txt Users && mv admin.txt Users && mv groups.txt Users && mv auth.txt Users && mv passwd.txt Users && mv shadow.txt Users && mv passwdcmp.txt Users && mv logindefs.txt Users && mv full.txt Users
+ls -o /etc/passwd > perms.txt 
+ls -o /etc/shadow >> perms.txt
+cp auth.txt Main && cp admin.txt Main && cp perms.txt Main 
+mv finalusers.txt Users && mv admin.txt Users && mv groups.txt Users && mv auth.txt Users && mv passwd.txt Users && mv shadow.txt Users && mv passwdcmp.txt Users && mv logindefs.txt Users && mv full.txt Users && mv perms.txt Users 
 
 #Cron Processes 
 mkdir Cron 
@@ -70,6 +85,7 @@ echo " " >> crontab.txt && echo "Daily:" >> crontab.txt && ls -la /etc/cron.dail
 echo " " >> crontab.txt && echo "Weekly:" >> crontab.txt && ls -la /etc/cron.weekly/ >> crontab.txt 
 echo " " >> crontab.txt && echo "Monthly:" >> crontab.txt && ls -la /etc/cron.monthly/ >> crontab.txt 
 touch cronroot.txt && sudo crontab -u root -l > cronroot.txt && echo " " >> cronroot.txt && cat /etc/crontab >> cronroot.txt 
+cp crontab.txt Main 
 mv crontab.txt Cron && mv cronroot.txt Cron
 
 #Kernel
@@ -133,5 +149,8 @@ touch postgresqlconf.txt && cat /etc/postgresql/9.5/main/postgresql.conf > postg
 cd ..
 mkdir nginx
 cd nginx
-touch nginxconf.txt 
+touch nginx.txt 
+cat /etc/nginx/* > nginx.txt 
 cd ..
+cd ..
+cp /Configs/sysctl/* Main
