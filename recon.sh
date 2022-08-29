@@ -31,10 +31,22 @@ cp Shell/sudo* Main
 mkdir Items 
 sudo apt install net-tools 
 touch osversion.txt && cat /etc/os-release >> osversion.txt && echo " " >> osversion.txt && lsb_release -a >> osversion.txt && echo " " >> osversion.txt && hostnamectl >> osversion.txt 
-touch installeditems.txt && sudo dpkg --list > installeditems.txt
-touch "netstat-p.txt" && sudo netstat -peanut > "netstat-p.txt"
+sudo dpkg --list > installeditems.txt
+sudo netstat -peanut > "netstat-p.txt"
+echo "" >> "netstat-p.txt"
+echo "ifconfig:" >> "netstat-p.txt"
+ifconfig >> "netstat-p.txt"
+echo "" >> "netstat-p.txt"
+echo "nmcli:" >> "netstat-p.txt"
+nmcli >> "netstat-p.txt"
+nmcli g >> "netstat-p.txt"
+nmcli d >> "netstat-p.txt"
+mcli device show >> "netstat-p.txt"
+nmcli device show >> "netstat-p.txt"
 touch motd.txt && cat /run/motd.dynamic > motd.txt && echo " " >> motd.txt && sudo run-parts -v /etc/update-motd.d/ > motd.txt 
 touch homedir.txt && ls -la /home/*/* > homedir.txt 
+alsaucm listcards > cards.txt
+
 # touch perms.txt &&  df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type f -perm -0002 > perms.txt
 # touch perms.txt && find <partition> -xdev -type f -perm -0002 > perms.txt && echo " " >> perms.txt && find <partition> -xdev -nouser perms.txt && echo " " >> perms.txt && find <partition> -xdev -nogroup >> perms.txt
 
