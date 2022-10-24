@@ -35,7 +35,7 @@
 	sudo apt-get purge rfkill
 	sudo apt-get purge zmap
 	sudo apt-get purge doona
-	
+	sudo apt-get purge nc
 
 
 #Puring services
