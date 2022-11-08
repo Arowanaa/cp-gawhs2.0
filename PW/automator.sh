@@ -1,4 +1,5 @@
 #Automates all the scripts in the directory
+#Needs to be updated
 sudo apt-get -y install libpam-pwquality
 sudo ./lightdm.sh
 sudo ./rootpwchange.sh
