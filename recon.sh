@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo su
+
 mkdir Recon
 cd Recon
 
@@ -21,6 +23,7 @@ touch gmd.txt && cat /etc/gdm3/greeter.dconf-defaults > gdm.txt
 touch pwquality.txt && cat /etc/pwquality.conf > pwquality.txt
 cat /var/log/* > logs.txt
 cat /var/log/apt/* >> logs.txt
+cat /
 cd ..
 cp Shell/installhistory* Main 
 cp Shell/a* Main
@@ -66,11 +69,21 @@ find / -iname '*.flv' -type f >> "No no files"
 find / -iname '*.ogg' -type f >> "No no files"
 find / -iname '*.mov' -type f >> "No no files"
 find / -iname '*.txt' -type f >> "No no files"
+find / -iname '*.txt' -type f >> "No no files"
 find /home -iname '*.gif' -type f >> "No no files"
 find /home -iname '*.png' -type f >> "No no files"
 find /home -iname '*.jpg' -type f >> "No no files"
 find /home -iname '*.jpeg' -type f >> "No no files"
+
+touch perms
+getfacl -Rs /home /etc /var | less >> perms
+lsattr -R /etc 2>/dev/null | grep -v -e '--e--' | grep -v -e '/.*:$' | grep -v '^$' >> perms
+lsattr -R /home 2>/dev/null | grep -v -e '--e--' | grep -v -e '/.*:$' | grep -v '^$' >> perms
+lsattr -R /root 2>/dev/null | grep -v -e '--e--' | grep -v -e '/.*:$' | grep -v '^$' >> perms
+lsattr -R /var 2>/dev/null | grep -v -e '--e--' | grep -v -e '/.*:$' | grep -v '^$' >> perms
+find / -type f -perm -4000 >> perms
 cd ..
+
 mv osversion.txt Items && mv installeditems.txt Items && mv "netstat-p.txt" Items && mv motd.txt Items && mv homedir.txt Items
 cp /Items/"No no files" Main
 
@@ -101,7 +114,7 @@ cp crontab.txt Main
 mv crontab.txt Cron && mv cronroot.txt Cron
 
 #Kernel
-mkdir Kernel 
+mkdir "System Info" 
 touch logs.txt && journalctl > logs.txt 
 touch version.txt && uname -a > version.txt 
 touch boot.txt && systemd-analyze blame > boot.txt 
@@ -153,7 +166,8 @@ touch pureftpd_conf.txt && cat /etc/pure-ftpd.conf > pureftpd_conf.txt
 cd ..
 mkdir Apache
 cd Apache 
-touch apacheconf.txt && cat /etc/apache2/apache2.conf > apacheconf.txt 
+touch apacheconf.txt && cat /etc/apache*/*/* > apacheconf.txt 
+
 cd ..
 mkdir SQL
 cd SQL
